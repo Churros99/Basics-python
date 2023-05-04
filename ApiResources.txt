@@ -1,0 +1,151 @@
+Diseño de una Api para una aplicacion de asistencia
+
+Endpoint 1: Empleados
+
+[Get] https://api.asistencia.com/empleados
+Accept: Applicacion/json
+
+Status Code: 200 (ok)
+Content-type: application/json
+Response:
+{
+    "IdEmpleado": 1,
+    "Nombre": 'Obed',
+    "Paterno": 'Aguilar',
+    "Materno": 'Lujan',
+    "Huella": '4F5DS46F48G4DF6G21'
+}
+
+[Post] https://api.asistencia.com/empleados
+accept: application/json   
+Body:
+{
+    "Nombre": 'Obed',
+    "Paterno": 'Aguilar',
+    "Materno": 'Lujan',
+    "Huella": '4F5DS46F48G4DF6G21'
+}
+
+Status Code: 201(Created)
+Content-type: application/json
+Response:
+{
+    "IdEmpleado": 2
+    "Nombre": 'Aria Gabriela',
+    "Paterno": 'Aguilar',
+    "Materno": 'Gamez',
+    "Huella": '6D8F4G3DF21GD6FG1HDF6G8H'
+}
+
+[Put] https://api.asistencia.com/empleados
+accept: application/json   
+Body:
+{
+     "IdEmpleado": 2,
+    "Huella": 'S65D4F6S5D4FS648DG321FG8'
+}
+
+Status Code: 201(Created)
+Content-type: application/json
+Response:
+{
+    "IdEmpleado": 2
+    "Nombre": 'Aria Gabriela',
+    "Paterno": 'Aguilar',
+    "Materno": 'Gamez',
+    "Huella": 'S65D4F6S5D4FS648DG321FG8'
+}
+
+[DELETE] https://api.asistencia.com/empleados
+accept: application/json  
+Body:
+{
+     "id": 2
+}
+
+Status Code: 200(Ok)
+Content-type: application/json
+
+Endpoint 2: Asistencias
+
+[Get] https://api.asistencia.com/asistencia
+Accept: Applicacion/json
+
+Status Code: 200 (ok)
+Content-type: application/json
+Response:
+{
+    "IdEmpleado": 1,
+    "Huella": '4F5DS46F48G4DF6G21',
+    "Checadas":
+    [
+        {
+            "IdChecada": 1,
+            "Fecha": '03-05-2023',
+            "Hora": '08:30:00.0000'
+        },
+        {
+            "IdChecada": 2,
+            "Fecha": '03-05-2023',
+            "Hora": '14:00:00.0000'
+        }
+    ]
+}
+
+[Post] https://api.asistencia.com/asistencia
+accept: application/json   
+Body:
+{
+    "IdEmpleado": 1,
+    "Huella": '4F5DS46F48G4DF6G21',
+    "Checadas":
+    [
+        {
+            "Fecha": '03-05-2023',
+            "Hora": '14:30:00.0000'
+        }
+    ]
+}
+
+Status Code: 201(Created)
+Content-type: application/json
+Response:
+{
+    "IdEmpleado": 1,
+    "Huella": '4F5DS46F48G4DF6G21',
+    "Checadas":
+    [
+        {
+            "IdChecada": 3,
+            "Fecha": '03-05-2023',
+            "Hora": '14:50:00.0000'
+        }
+    ]
+}
+
+[Put] https://api.asistencia.com/asistencia
+accept: application/json   
+Body:
+{
+    "IdChecada": 3,
+    "Hora": '14:30:00.0000'
+}
+
+Status Code: 201(Created)
+Content-type: application/json
+Response:
+{
+    "IdChecada": 3,
+    "Fecha": '03-05-2023',
+    "Hora": '14:30:00.0000'
+}
+
+[DELETE] https://api.asistencia.com/asistencia
+accept: application/json  
+Body:
+{
+    "IdChecada": 2
+}
+
+Status Code: 200(Ok)
+Content-type: application/json
